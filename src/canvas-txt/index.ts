@@ -16,6 +16,8 @@ export interface CanvasTextConfig {
   font?: string
   lineHeight?: number
   justify?: boolean
+  strokeWidth?: number,
+  strokeColor?: string,
 }
 
 const defaultConfig = {
@@ -29,6 +31,7 @@ const defaultConfig = {
   font: 'Arial',
   lineHeight: null,
   justify: false,
+  strokeWidth: 0,
 }
 
 function drawText(
@@ -48,7 +51,7 @@ function drawText(
   const xEnd = x + width
   const yEnd = y + height
 
-  const { fontStyle, fontVariant, fontWeight, fontSize, font } = config
+  const { fontStyle, fontVariant, fontWeight, fontSize, font, strokeWidth } = config
   const style = `${fontStyle} ${fontVariant} ${fontWeight} ${fontSize}px ${font}`
   ctx.font = style
 
@@ -99,6 +102,9 @@ function drawText(
   textArray.forEach((txtline) => {
     txtline = txtline.trim()
     ctx.fillText(txtline, textAnchor, txtY)
+    if (strokeWidth) {
+      ctx.strokeText(txtline, textAnchor, txtY)
+    }
     txtY += charHeight
   })
 
