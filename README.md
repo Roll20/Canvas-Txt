@@ -142,6 +142,7 @@ const { drawText, getTextHeight, splitText } = window.canvasTxt
 | `lineHeight`  |    `null`    | Line height of the text, if set to null it tries to auto-detect the value      |
 |   `justify`   |   `false`    | Justify text if `true`, it will insert spaces between words when necessary.    |
 | `strokeWidth` |   `1`        | Stroke line width.                                                             |
+| `strokeColor` |   `black`    | Stroke color.                                                                  |
 
 ## Methods
 
