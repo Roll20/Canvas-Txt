@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-      - feature/gh-action-for-roll20-registry
+      # - feature/gh-action-for-roll20-registry
 
 jobs:
   build:

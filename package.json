@@ -1,6 +1,6 @@
 {
   "name": "@roll20/canvas-txt",
-  "version": "4.2.0",
+  "version": "4.2.1",
   "description": "Render multiline textboxes in HTML5 canvas with auto line breaks and better alignment system",
   "files": [
     "dist"
