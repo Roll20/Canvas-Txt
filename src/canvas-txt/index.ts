@@ -51,7 +51,7 @@ function drawText(
   const xEnd = x + width
   const yEnd = y + height
 
-  const { fontStyle, fontVariant, fontWeight, fontSize, font, strokeWidth } = config
+  const { fontStyle, fontVariant, fontWeight, fontSize, font, strokeColor, strokeWidth } = config
   const style = `${fontStyle} ${fontVariant} ${fontWeight} ${fontSize}px ${font}`
   ctx.font = style
 
@@ -98,11 +98,16 @@ function drawText(
     debugY = y + height / 2
     txtY -= negOffset
   }
+  if (strokeColor && strokeWidth) {
+    ctx.strokeStyle = strokeColor;
+    ctx.lineWidth = strokeWidth;
+  }
+
   //print all lines of text
   textArray.forEach((txtline) => {
     txtline = txtline.trim()
     ctx.fillText(txtline, textAnchor, txtY)
-    if (strokeWidth) {
+    if (strokeColor && strokeWidth) {
       ctx.strokeText(txtline, textAnchor, txtY)
     }
     txtY += charHeight

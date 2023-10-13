@@ -141,9 +141,7 @@ const { drawText, getTextHeight, splitText } = window.canvasTxt
 | `fontWeight`  |     `''`     | Font weight, same as css font-weight. Examples: `bold`, `100`                  |
 | `lineHeight`  |    `null`    | Line height of the text, if set to null it tries to auto-detect the value      |
 |   `justify`   |   `false`    | Justify text if `true`, it will insert spaces between words when necessary.    |
-|  `stroke`     |   `true`     | Stroke text if `true`, it will add stroke outer the text.                      |
 | `strokeWidth` |   `1`        | Stroke line width.                                                             |
-| `strokeColor` |   `black`    | Stroke color.                                                                  |
 
 ## Methods
 
