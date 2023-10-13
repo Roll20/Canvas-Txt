@@ -1,6 +1,10 @@
-name: Node.js Build
+name: Build and publish package
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
+      - feature/gh-action-for-roll20-registry
 
 jobs:
   build:
@@ -11,13 +15,20 @@ jobs:
         node-version: [17.x]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+          registry-url: https://npm.pkg.github.com/
+          # Defaults to the user or organization that owns the workflow file
+          scope: '@roll20'
       - run: yarn install
       - run: yarn build
       # - run: npm test
         env:
           CI: true
+      - run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
