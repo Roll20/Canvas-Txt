@@ -105,7 +105,6 @@ function drawText(
 
   //print all lines of text
   textArray.forEach((txtline) => {
-    txtline = txtline.trim()
     ctx.fillText(txtline, textAnchor, txtY)
     if (strokeColor && strokeWidth) {
       ctx.strokeText(txtline, textAnchor, txtY)
