@@ -143,6 +143,8 @@ const { drawText, getTextHeight, splitText } = window.canvasTxt
 |   `justify`   |   `false`    | Justify text if `true`, it will insert spaces between words when necessary.    |
 | `strokeWidth` |   `1`        | Stroke line width.                                                             |
 | `strokeColor` |   `black`    | Stroke color.                                                                  |
+| `shadowBlur`  |   `0`        | Amount of shadow blur.                                                         |
+| `shadowColor` |   `black`    | Color of shadow blur.                                                          |
 
 ## Methods
 

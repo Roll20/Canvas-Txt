@@ -18,6 +18,8 @@ export interface CanvasTextConfig {
   justify?: boolean
   strokeWidth?: number,
   strokeColor?: string,
+  shadowColor?: string,
+  shadowBlur?: number,
 }
 
 const defaultConfig = {
@@ -32,6 +34,8 @@ const defaultConfig = {
   lineHeight: null,
   justify: false,
   strokeWidth: 0,
+  shadowColor: '#000000',
+  shadowBlur: 0,
 }
 
 function drawText(
@@ -51,7 +55,7 @@ function drawText(
   const xEnd = x + width
   const yEnd = y + height
 
-  const { fontStyle, fontVariant, fontWeight, fontSize, font, strokeColor, strokeWidth } = config
+  const { fontStyle, fontVariant, fontWeight, fontSize, font, strokeColor, strokeWidth, shadowBlur, shadowColor } = config
   const style = `${fontStyle} ${fontVariant} ${fontWeight} ${fontSize}px ${font}`
   ctx.font = style
 
@@ -101,6 +105,11 @@ function drawText(
   if (strokeColor && strokeWidth) {
     ctx.strokeStyle = strokeColor;
     ctx.lineWidth = strokeWidth;
+  }
+
+  if (shadowBlur && shadowColor) {
+    ctx.shadowBlur = shadowBlur;
+    ctx.shadowColor = shadowColor;
   }
 
   //print all lines of text
